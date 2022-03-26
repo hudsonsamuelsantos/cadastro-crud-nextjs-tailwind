@@ -1,10 +1,15 @@
 import Client from "../core/Client"
+import { EditIncon, TrashIcon } from "./Icons"
 
 interface TableProps {
     clients: Client[]
+    clientSelected?: (client: Client) => void
+    clientDeleted?: (client: Client) => void
 }
 
 export default function Table(props: TableProps) {
+
+    const showActions = props.clientDeleted || props.clientSelected
 
     function headerRender() {
         return (
@@ -12,6 +17,7 @@ export default function Table(props: TableProps) {
                 <th className="text-left p-4">Código</th>
                 <th className="text-left p-4">Nome</th>
                 <th className="text-left p-4">Idade</th>
+                {showActions ? <th className="p-4">Ações</th> : false}
             </tr>
         )
     }
@@ -24,9 +30,36 @@ export default function Table(props: TableProps) {
                     <td className="text-left p-4">{client.id}</td>
                     <td className="text-left p-4">{client.name}</td>
                     <td className="text-left p-4">{client.age}</td>
+                    {showActions ? actionsRender(client) : false}
                 </tr>
             )
         })
+    }
+
+    function actionsRender(client: Client) {
+        return (
+            <td className="flex">
+                {props.clientSelected ? (
+                    <button className={`
+                    flex justify-center items-center
+                    text-green-600 rounded-full p-2 m-1
+                    hover:bg-purple-50
+                `}>
+                        {EditIncon}
+                    </button>
+                ) : false}
+
+                {props.clientDeleted ? (
+                    <button className={`
+                    flex justify-center items-center
+                    text-red-500 rounded-full p-2 m-1
+                    hover:bg-purple-50
+                `}>
+                        {TrashIcon}
+                    </button>
+                ) : false}
+            </td>
+        )
     }
 
     return (

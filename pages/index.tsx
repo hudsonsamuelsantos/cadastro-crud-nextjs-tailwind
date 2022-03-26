@@ -10,6 +10,10 @@ export default function Home() {
     new Client('Hudson', 22, '2'),
   ]
 
+  function clientSelected(client: Client) {
+
+  }
+
   return (
     <div className={`
       flex justify-center items-center h-screen
@@ -17,7 +21,10 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Cadastro Simples">
-        <Table clients={clients}></Table>
+        <Table
+          clients={clients}
+          clientSelected = {clientSelected}
+        ></Table>
       </Layout>
     </div>
   )
