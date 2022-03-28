@@ -1,3 +1,4 @@
+import Button from "../components/Button"
 import Layout from "../components/Layout"
 import Table from "../components/Table"
 import Client from "../core/Client"
@@ -11,7 +12,11 @@ export default function Home() {
   ]
 
   function clientSelected(client: Client) {
+    console.log(client.name)
+  }
 
+  function clientDeleted(client: Client) {
+    console.log(client.name)
   }
 
   return (
@@ -21,9 +26,13 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Cadastro Simples">
+        <div className="flex justify-end">
+          <Button color="gray" className="mb-4">Novo Cliente</Button>
+        </div>
         <Table
           clients={clients}
-          clientSelected = {clientSelected}
+          clientSelected={clientSelected}
+          clientDeleted={clientDeleted}
         ></Table>
       </Layout>
     </div>
