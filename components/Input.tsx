@@ -3,6 +3,7 @@ interface InputProps {
     text: string
     value: any
     isReadOlny?: boolean
+    onChangeValue?: (value: any) => void
 }
 
 export default function Input(props: InputProps) {
@@ -15,6 +16,7 @@ export default function Input(props: InputProps) {
                 type={props.type ?? 'text'}
                 value={props.value}
                 readOnly={props.isReadOlny}
+                onChange={e => props.onChangeValue?.(e.target.value)}
                 className={`
                     border border-purple-500 rounded-lg
                     focus:outline-none bg-gray-200 px-4 py-2
