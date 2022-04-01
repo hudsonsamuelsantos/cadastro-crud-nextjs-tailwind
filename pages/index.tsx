@@ -25,6 +25,11 @@ export default function Home() {
     console.log(client.name)
   }
 
+  function newClient() {
+    setClient(Client.empty())
+    setVisible('form')
+  }
+
   function saveClient(client: Client) {
     console.log(client)
     setVisible('table')
@@ -40,7 +45,7 @@ export default function Home() {
         {visible === 'table' ? (
           <>
             <div className="flex justify-end">
-              <Button onClick={() => setVisible('form')} className="mb-4">Novo Cliente</Button>
+              <Button onClick={newClient} className="mb-4">Novo Cliente</Button>
             </div>
             <Table
               clients={clients}
@@ -49,7 +54,7 @@ export default function Home() {
             ></Table>
           </>
         ) : (
-          <Form 
+          <Form
             canceled={() => setVisible('table')}
             clientChange={saveClient}
             client={client}
