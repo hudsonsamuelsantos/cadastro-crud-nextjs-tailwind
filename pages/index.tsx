@@ -1,40 +1,24 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import ClientCollection from "../backend/db/ClientCollection"
 import Button from "../components/Button"
 import Form from "../components/Form"
 import Layout from "../components/Layout"
 import Table from "../components/Table"
 import Client from "../core/Client"
+import ClientRepo from "../core/ClientRepo"
+import useClients from "../hooks/useClients"
 
 export default function Home() {
-
-  const [client, setClient] = useState<Client>(Client.empty())
-  const [visible, setVisible] = useState<'table' | 'form'>('table')
-
-  const clients = [
-    new Client('Hudson', 22, '1'),
-    new Client('Hudson', 22, '3'),
-    new Client('Hudson', 22, '2'),
-  ]
-
-  function clientSelected(client: Client) {
-    setClient(client)
-    setVisible('form')
-  }
-
-  function clientDeleted(client: Client) {
-    console.log(client.name)
-  }
-
-  function newClient() {
-    setClient(Client.empty())
-    setVisible('form')
-  }
-
-  function saveClient(client: Client) {
-    console.log(client)
-    setVisible('table')
-  }
-
+  
+  const {
+    client,
+    clients,
+    selectClient,
+    deleteClient,
+    newClient,
+    saveClient,
+  } = useClients()
+  
   return (
     <div className={`
       flex justify-center items-center h-screen
@@ -49,8 +33,8 @@ export default function Home() {
             </div>
             <Table
               clients={clients}
-              clientSelected={clientSelected}
-              clientDeleted={clientDeleted}
+              clientSelected={selectClient}
+              clientDeleted={deleteClient}
             ></Table>
           </>
         ) : (
