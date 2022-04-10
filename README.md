@@ -1,4 +1,4 @@
-## Sistema de Cadastro (CRUD)
+# Sistema de Cadastro (CRUD)
 
 ## Sobre
 
@@ -6,21 +6,25 @@
   <img alt="Screenshot do istema de Cadastro (CRUD)" src=".github/screenshot.png" width="100%">
 </p>
 
-O Sistema de Cadastro consiste em uma aplicação web  que permite o cadastro de usuários, e também alteração e e exluisão dos cadastros.
+O Sistema de Cadastro (CRUD) é uma aplicação web que permite o cadastro de clientes.
 
-Acesse o projeto: https://
+Acesse o projeto: https://crud-cadastro-next-typescript-tailwind.vercel.app/
 
-## 🚀 Tecnologias utilizadas
+## Funcionalidades
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+:heavy_check_mark:  Cadastrar clientes
 
+:heavy_check_mark:  Alterar as dados do cadastro
 
-## :memo: Licença
+:heavy_check_mark:  Excluir um cadastro
 
-Esse projeto está sob a licença ... . Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+## Tecnologias utilizadas
 
-## Autor
+- React
+- Next
+- TypeScript
+- Tailwind
 
-Hudson Santos
+## Desenvolvedor :octocat:
 
-https://www.linkedin.com/in/hudsonsamuelsantos/
+**Linkedin:** [Hudson Santos](https://www.linkedin.com/in/hudsonsamuelsantos/)
